@@ -2,7 +2,7 @@ const env = require('../.env')
 const twit = require('twit');
 const Twitter = new twit(env);
 // da prezidents twitter id
-const follow_ID = "25073877";
+const follow_ID = '25073877';
 const parser = require('./parse-tweet');
 
 // create a stream that follow trumps account
@@ -12,7 +12,7 @@ const stream = Twitter.stream('statuses/filter', {follow: [follow_ID]});
 // when trump tweets, check the tweet, if it passes the paramaters, pass the tweet id to the retweet function
 
 stream.on('tweet', function(tweet) {
-  if (parser.checkTweet(tweet.text)){
+  if (parser.checkTweet(tweet.text) && tweet.user.id_str == follow_ID){
     retweet(tweet.id_str)
   }
 });
