@@ -37,25 +37,4 @@ function retweet(tweetID) {
   })
 };
 
-// let tweets = function(){
-//   let params = {
-//     q: "@realDonaldTrump",
-//     lang: 'en',
-//     result_type: 'mixed',
-//     count: '1',
-//     tweet_mode: 'extended'
-//   };
-//
-//   Twitter.get('search/tweets', params, function(err, data){
-//     if (data) {
-//       console.log("this is the tweet", data.statuses[0].full_text);
-//       // debugger;
-//       if (parser.checkTweet(data.statuses[0].full_text)) {
-//         retweet(data.statuses[0].id_str)
-//       } else {
-//         console.log("tweet did not match");
-//       }
-//     }
-//   })
-// };
-// tweets()
+setInterval(() => {console.log("running...")}, 700000)
