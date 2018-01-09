@@ -1,9 +1,19 @@
 const env = require('../.env')
 const twit = require('twit');
-const Twitter = new twit(env);
 // da prezidents twitter id
 const follow_ID = '25073877';
 const parser = require('./parse-tweet');
+
+
+const config = {
+ consumer_key: process.env.consumer_key,
+ consumer_secret: process.env.consumer_secret,
+ access_token: process.env.access_token,
+ access_token_secret: process.env.access_token_secret
+};
+
+const Twitter = new twit(config);
+
 
 // create a stream that follow trumps account
 
