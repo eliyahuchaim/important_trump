@@ -1,4 +1,4 @@
-const env = require('./env')
+const env = require('./.env')
 const twit = require('twit');
 // da prezidents twitter id
 const follow_ID = '25073877';
