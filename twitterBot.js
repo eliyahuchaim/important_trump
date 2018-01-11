@@ -22,7 +22,8 @@ const stream = Twitter.stream('statuses/filter', {follow: [follow_ID]});
 // when trump tweets, check the tweet, if it passes the paramaters, pass the tweet id to the retweet function
 
 stream.on('tweet', function(tweet) {
-  if (parser.checkTweet(tweet.text) && tweet.user.id_str == follow_ID){
+  if (parser.main(tweet.text) && tweet.user.id_str == follow_ID){
+    console.log("this is the tweet:", tweet.text);
     retweet(tweet.id_str)
   }
 });
@@ -30,7 +31,7 @@ stream.on('tweet', function(tweet) {
 function retweet(tweetID) {
   Twitter.post('statuses/retweet/:id', {id: tweetID}, function(err, res) {
     if (res) {
-      console.log('success');
+      console.log('SUCCESS');
     } else {
       console.log(error.message);
     }
